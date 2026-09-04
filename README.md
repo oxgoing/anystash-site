@@ -4,12 +4,18 @@ Public support and legal pages for **AnyStash** (Apple Shortcuts companion).
 
 Operator: **White Dwarf Technology Co., Ltd.**
 
-## Live URLs (GitHub Pages)
+## Live URLs
 
-- Home: https://oxgoing.github.io/anystash-site/
-- Support: https://oxgoing.github.io/anystash-site/support/
-- Privacy: https://oxgoing.github.io/anystash-site/privacy/
-- Terms: https://oxgoing.github.io/anystash-site/terms/
+Custom domain (GitHub Pages):
+
+- Home: https://anystash.izip.vip/
+- Support: https://anystash.izip.vip/support/
+- Privacy: https://anystash.izip.vip/privacy/
+- Terms: https://anystash.izip.vip/terms/
+
+Fallback (still works; redirects after custom domain is active):
+
+- https://oxgoing.github.io/anystash-site/
 
 ## Stack
 
