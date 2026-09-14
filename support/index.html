@@ -6,7 +6,7 @@
     <title>Support — AnyStash</title>
     <meta
       name="description"
-      content="AnyStash technical support: FAQ for Live Activities, purchases, and limits."
+      content="AnyStash support: concepts for Live Activities, Event Sessions, Check In, variables and key paths, plus troubleshooting."
     />
     <meta name="application-name" content="AnyStash" />
     <link rel="canonical" href="https://anystash.izip.vip/support/" />
@@ -15,7 +15,7 @@
     <meta property="og:title" content="Support — AnyStash" />
     <meta
       property="og:description"
-      content="AnyStash technical support: FAQ for Live Activities, purchases, and limits."
+      content="AnyStash support: concepts for Live Activities, Event Sessions, Check In, variables and key paths, plus troubleshooting."
     />
     <meta property="og:url" content="https://anystash.izip.vip/support/" />
     <script type="application/ld+json">
@@ -54,6 +54,9 @@
         <p class="meta">
           Technical help for AnyStash. Prefer email for account or purchase
           questions that need a reply.
+          <a href="#concepts">Learn the basics</a>
+          ·
+          <a href="#troubleshooting">Fix a problem</a>
         </p>
 
         <h2>Contact</h2>
@@ -66,18 +69,285 @@
           went wrong. Screenshots of the Shortcuts action and error help a lot.
         </p>
 
-        <h2>FAQ</h2>
+        <h2 id="concepts">Concepts</h2>
         <div class="faq">
           <details>
             <summary>How do I start a Live Activity from Shortcuts?</summary>
             <p>
-              In the Shortcuts app, add the
-              <strong>Start Live Activity</strong> action from AnyStash. Pick a
-              category (for example Parking), set timer mode if needed, then run
-              the shortcut. You can also start from the AnyStash app via More →
-              Start Live Activity.
+              In the Shortcuts app, add
+              <strong>Start Live Activity</strong> from AnyStash. Pick an Event
+              Category (for example Parking), set the timer if you need one,
+              leave <strong>Save as Event Session</strong> on if you want a
+              record under Events, then run the shortcut.
+            </p>
+            <p>
+              You can also start from AnyStash:
+              <strong>More → Start Live Activity</strong>.
+            </p>
+            <p>
+              To finish: use <strong>Stop Live Activity</strong> and/or end the
+              Event Session. Open the <strong>Events</strong> tab to review what
+              you saved.
+            </p>
+            <p>
+              If nothing appears on the Lock Screen, see
+              <a href="#troubleshooting">Troubleshooting</a> below.
             </p>
           </details>
+
+          <details>
+            <summary>
+              What’s the difference between a Live Activity and an Event
+              Session? How do they work together?
+            </summary>
+            <p>
+              A <strong>Live Activity</strong> is the in-progress display on the
+              Lock Screen and Dynamic Island (timer, title, and related status).
+              When it ends, it leaves the Island.
+            </p>
+            <p>
+              An <strong>Event Session</strong> is the activity record in
+              AnyStash—Start, optional Checkpoints, then End—so you can open it
+              in the app <strong>while it is running</strong> and again later in
+              history (notes, category, linked locations).
+            </p>
+            <p>
+              They often work <strong>together</strong>. When you start a Live
+              Activity, turn <strong>Save as Event Session</strong>
+              <strong>On</strong> (the parameter in the Start Live Activity
+              shortcut and in-app form; <strong>On by default</strong>) to
+              create a linked session at the same time. You will see the Island
+              <strong>and</strong> the session under Events in the app. Turn it
+              <strong>Off</strong> if you only want the Island display for this
+              start. You can also record an Event Session without starting a
+              Live Activity.
+            </p>
+            <p>
+              In short: the Live Activity is the system surface for “in
+              progress”; the Event Session is the in-app record you can browse
+              anytime—during and after. “Event” here is not a calendar
+              appointment.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              How is AnyStash different from Apple Calendar events or Apple
+              Maps’ parked car?
+            </summary>
+            <p>
+              <strong>Apple Calendar</strong> events are appointments on a
+              schedule in the system Calendar app.
+              <strong>Event Sessions</strong> in AnyStash are activities you
+              start and stop—optionally with a Live Activity while they run—and
+              a record you can open in AnyStash anytime (during and after).
+            </p>
+            <p>
+              <strong>Apple Maps’ parked car</strong> (the system pin) helps you
+              find where the car is. <strong>Parking in AnyStash</strong> helps
+              you run the parking <strong>session</strong>: a timer on the Lock
+              Screen and Dynamic Island, clear start and end, and a record in
+              Events—not only a pin on the map.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              What’s the difference between an Event Category and a Variable
+              Module?
+            </summary>
+            <p>
+              An <strong>Event Category</strong> is for Events and Live
+              Activities—the kind of activity you’re running (Parking, Focus,
+              Meeting, Visit, Generic, or a custom category on Pro). Check In
+              always uses the built-in <strong>Visit</strong> category.
+            </p>
+            <p>
+              A <strong>Variable Module</strong> is only for
+              <strong>variables</strong>—a folder-like group such as General or
+              Photos so Set/Get stays organized.
+            </p>
+            <p>
+              They solve different jobs and are not interchangeable. In
+              Shortcuts and the app, “category” usually means Event Category;
+              “module” means Variable Module.
+            </p>
+          </details>
+
+          <details>
+            <summary>What are Free daily start limits?</summary>
+            <p>
+              After a short intro period, Free includes a limited number of
+              <strong>starts</strong> per local day. See
+              <strong>Settings → Usage</strong> in the app for your remaining
+              count. Pro Lifetime has unlimited starts.
+            </p>
+            <p>
+              <strong>Counts as a start:</strong> Start Live Activity; Event
+              Start; Event Checkpoint.
+              <strong>Does not count:</strong> End; Stop Live Activity; Check In
+              or other standalone location saves.
+            </p>
+            <p>
+              If you Start Live Activity with
+              <strong>Save as Event Session</strong> on, that still counts as
+              <strong>one</strong> start (not two). Ending or checking in never
+              uses the start quota.
+            </p>
+          </details>
+
+          <details>
+            <summary>Does Free delete my history after 30 days?</summary>
+            <p>
+              No. Free can <strong>browse and search</strong> about the last
+              <strong>30 days</strong>. Older sessions and locations can still
+              stay on your device—they’re just outside the Free browse window
+              until you upgrade to Pro.
+            </p>
+            <p>
+              AnyStash does <strong>not</strong> auto-delete older history
+              because you’re on Free. You can delete older data yourself in
+              Settings if you want to free space.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              How is Check In different from saving a location on a session?
+            </summary>
+            <p>
+              <strong>Check In</strong> saves where you are as a
+              <strong>standalone</strong> place mark under the built-in
+              <strong>Visit</strong> category (list and map). You don’t pick
+              another category when checking in. It does
+              <strong>not</strong> use the Free daily start quota.
+            </p>
+            <p>
+              When you start or end an <strong>Event Session</strong>, you can
+              also save the current location
+              <strong>on that activity</strong>—using whatever category that
+              session uses (Parking, Focus, and so on). That place belongs to
+              the session, not to a separate check-in.
+            </p>
+            <p>
+              Use <strong>Check In</strong> for a simple “I was here” under
+              Visit. Attach location to a <strong>session</strong> when the
+              place is part of the activity you’re running.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I customize categories?</summary>
+            <p>
+              Built-in categories (such as Parking, Focus, Meeting, Visit, and
+              Generic) work on Free.
+            </p>
+            <p>
+              <strong>Renaming</strong>, changing <strong>icon</strong> or
+              <strong>color</strong>, and <strong>creating</strong> new
+              categories require <strong>Pro</strong>. The edit and create
+              controls stay visible on Free—they open the upgrade path instead
+              of hiding the feature.
+            </p>
+          </details>
+
+          <details>
+            <summary>What can global variables do?</summary>
+            <p>
+              Global variables let other shortcuts <strong>Set</strong> and
+              <strong>Get</strong> values you stash in AnyStash—text, numbers,
+              yes/no, lists, dictionaries, and files.
+            </p>
+            <p>
+              Organize them with <strong>Modules</strong>. Use a
+              <strong>key path</strong> to read or update a nested field without
+              replacing the whole value. See the next item for the full key path
+              syntax.
+            </p>
+            <p>
+              Data stays on your device by default; optional iCloud uses your
+              Apple ID. See <a href="../privacy/">Privacy</a> for details. In
+              the app, use <strong>More → Copy Key Path</strong> when editing a
+              variable to avoid typing mistakes.
+            </p>
+          </details>
+
+          <details>
+            <summary>What is the key path syntax?</summary>
+            <p>
+              A <strong>key path</strong> is the address you type in Shortcuts
+              to find a value in AnyStash.
+            </p>
+            <p><strong>Rules</strong></p>
+            <ul>
+              <li>
+                Optional module: <code>@ModuleName.</code> — if you skip it,
+                AnyStash uses <strong>General</strong>.
+              </li>
+              <li>
+                Then the variable’s root name, then optional segments for list
+                items or dictionary keys.
+              </li>
+              <li>
+                List items count from <strong>0</strong>:
+                <code>shoppingList.0</code> or <code>shoppingList[0]</code> is
+                the first item.
+              </li>
+              <li>
+                Dictionary keys: <code>profile.city</code> or
+                <code>profile["city"]</code>. If the key is only digits, or
+                contains <code>.</code> or <code>[</code>, use quotes:
+                <code>profile["0"]</code>, <code>profile["home.city"]</code>.
+              </li>
+              <li>
+                Rare names: a literal <code>.</code> in a name →
+                <code>\.</code>; a root name that starts with
+                <code>@</code> → <code>\@name</code>; inside quoted keys →
+                <code>\"</code> and <code>\\</code>.
+              </li>
+            </ul>
+            <p><strong>Examples</strong></p>
+            <ul>
+              <li><code>myKey</code> — General / <code>myKey</code></li>
+              <li>
+                <code>@General.myKey</code> — same, module written out
+              </li>
+              <li><code>@Photos.avatar</code> — Photos / <code>avatar</code></li>
+              <li>
+                <code>myList.0</code> or <code>myList[0]</code> — first list
+                item
+              </li>
+              <li>
+                <code>myDict.name</code> or <code>myDict["a.b"]</code> —
+                dictionary keys
+              </li>
+              <li>
+                <code>@General.myDict["0"]</code> — dictionary key
+                <code>0</code> (not “first list item”)
+              </li>
+              <li>
+                <code>\@foo.bar</code> — root name <code>@foo</code>, then key
+                <code>bar</code>
+              </li>
+            </ul>
+            <p>
+              Prefer <strong>More → Copy Key Path</strong> in the app, then
+              paste into Shortcuts.
+            </p>
+          </details>
+
+          <details>
+            <summary>Where is my data stored?</summary>
+            <p>
+              Sessions, locations, and variables stay on your device by default.
+              Optional iCloud Drive / CloudKit sync uses your Apple ID. See the
+              <a href="../privacy/">Privacy Policy</a> for details.
+            </p>
+          </details>
+        </div>
+
+        <h2 id="troubleshooting">Troubleshooting</h2>
+        <div class="faq">
           <details>
             <summary>Live Activities do not appear on the Lock Screen</summary>
             <p>
@@ -93,16 +363,6 @@
               same Apple ID used for the purchase. Pro is a one-time
               non-consumable purchase tied to your Apple ID — there is no
               separate AnyStash account.
-            </p>
-          </details>
-          <details>
-            <summary>What are Free daily start limits?</summary>
-            <p>
-              After a short intro period, Free includes a limited number of Live
-              Activity / event starts per local day. End / Stop and standalone
-              location check-ins do not use that start quota. See Settings →
-              Usage in the app for your remaining count, or upgrade to Pro
-              Lifetime for unlimited starts.
             </p>
           </details>
           <details>
@@ -124,14 +384,6 @@
               <strong>AnyStash → Settings → Permissions</strong>, or in iOS
               Settings → AnyStash. If access was denied earlier, re-enable it
               there before the next timed session.
-            </p>
-          </details>
-          <details>
-            <summary>Where is my data stored?</summary>
-            <p>
-              Sessions, locations, and variables stay on your device by default.
-              Optional iCloud Drive / CloudKit sync uses your Apple ID. See the
-              <a href="../privacy/">Privacy Policy</a> for details.
             </p>
           </details>
         </div>

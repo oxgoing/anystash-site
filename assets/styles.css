@@ -285,6 +285,7 @@ main {
 }
 
 .prose h2 {
+  scroll-margin-top: 5.5rem;
   margin: 1.85rem 0 0.55rem;
   font-family: var(--font-display);
   font-size: 1.2rem;
@@ -333,6 +334,31 @@ main {
 
 .faq details p {
   margin: 0.65rem 0 0.15rem;
+}
+
+.faq details p + p,
+.faq details p + ul,
+.faq details ul + p {
+  margin-top: 0.55rem;
+}
+
+.faq ul {
+  margin: 0.45rem 0 0.15rem;
+  padding-left: 1.15rem;
+  color: var(--ink-soft);
+}
+
+.faq li {
+  margin: 0.25rem 0;
+}
+
+.faq code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88em;
+  padding: 0.08em 0.35em;
+  border-radius: 0.3rem;
+  background: var(--accent-wash);
+  color: var(--ink);
 }
 
 .site-footer {
