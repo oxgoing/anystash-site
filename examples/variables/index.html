@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Variables example — AnyStash</title>
+    <meta
+      name="description"
+      content="Use AnyStash Set and Get Global Variable to stash a today-focus tag that any shortcut can read later—unlike built-in Shortcuts variables."
+    />
+    <meta name="application-name" content="AnyStash" />
+    <link rel="canonical" href="https://anystash.izip.vip/examples/variables/" />
+    <meta property="og:site_name" content="AnyStash" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Variables example — AnyStash" />
+    <meta
+      property="og:description"
+      content="Stash @General.todayFocus with Set / Get Global Variable and confirm it in the AnyStash Variables tab."
+    />
+    <meta
+      property="og:url"
+      content="https://anystash.izip.vip/examples/variables/"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;550;650;700&family=Syne:wght@700;750&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="../../">Any<span>Stash</span></a>
+        <nav class="nav" aria-label="Primary">
+          <a href="../../">Home</a>
+          <a href="../../support/">Support</a>
+          <a href="../" aria-current="page">Examples</a>
+          <a href="../../privacy/">Privacy</a>
+          <a href="../../terms/">Terms</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <article class="prose">
+        <p class="meta"><a href="../">Examples</a> · Variables</p>
+        <h1>Global variables</h1>
+
+        <h2>What you’ll build</h2>
+        <p>
+          Two shortcuts that share Key Path
+          <code>@General.todayFocus</code> (for example
+          <strong>Deep work</strong>):
+          <strong>Set Today Focus</strong> writes with
+          <strong>Set Global Variable</strong>;
+          <strong>Get Today Focus</strong> reads with
+          <strong>Get Global Variable</strong> and shows the result. Running
+          them as separate shortcuts is the point—any later shortcut can Get
+          the same tag for notifications or other actions.
+        </p>
+
+        <h2>Why not Shortcuts Set Variable / Get Variable?</h2>
+        <div class="callout">
+          <p>
+            Built-in Shortcuts <strong>Set Variable</strong> and
+            <strong>Get Variable</strong> (and magic variables) mainly pass
+            values <strong>inside one run of one shortcut</strong>. When that
+            run ends, they are not a durable store you can rely on tomorrow—or
+            from another shortcut.
+          </p>
+          <p>
+            A name you Set in shortcut A is not a shared library that shortcut B
+            can Get. Magic variables also cannot jump across shortcuts.
+          </p>
+          <p>
+            <strong>Set Global Variable</strong> /
+            <strong>Get Global Variable</strong> in AnyStash write to the app’s
+            persistent store. Any shortcut that calls Get with the same Key Path
+            can read it, and you can <strong>view</strong> the same value in the
+            app’s <strong>Variables</strong> tab. Key Paths use
+            <code>@Module.key</code> (this example:
+            <code>@General.todayFocus</code>). Full syntax:
+            <a href="../../support/#concepts">Support → Concepts</a>.
+          </p>
+        </div>
+
+        <p class="cta-note">
+          This example is short—build the two shortcuts below (no import
+          link). Run <strong>Set Today Focus</strong> first, then
+          <strong>Get Today Focus</strong>.
+        </p>
+
+        <h2 id="build">Build it yourself</h2>
+        <ol class="steps">
+          <li>
+            <p>
+              <strong>Shortcut 1 — Set Today Focus:</strong> New shortcut →
+              search AnyStash → add
+              <strong>Set Global Variable</strong> (not the Text-only variant).
+              Key Path: <code>@General.todayFocus</code>. Choose Text (or Auto)
+              and enter a sample value such as <strong>Deep work</strong>.
+            </p>
+            <p class="cta-note">
+              Optional: to pass a value from another action in the same
+              shortcut, long-press <strong>Value</strong> and choose that
+              magic variable (or Select Variable).
+            </p>
+            <figure class="shot">
+              <img
+                src="../assets/variables-01-set.png"
+                alt="Set Global Variable with Key Path @General.todayFocus and Text value"
+                width="390"
+                height="844"
+                loading="lazy"
+              />
+              <figcaption>Set Global Variable + Key Path</figcaption>
+            </figure>
+          </li>
+          <li>
+            <p>
+              <strong>Shortcut 2 — Get Today Focus:</strong> Create a
+              <em>second</em> shortcut. Add
+              <strong>Get Global Variable</strong> with the same Key Path, then
+              <strong>Show Result</strong>.
+            </p>
+            <figure class="shot">
+              <img
+                src="../assets/variables-02-get.png"
+                alt="Get Global Variable with the same Key Path and Show Result"
+                width="390"
+                height="844"
+                loading="lazy"
+              />
+              <figcaption>Get Global Variable + Show Result</figcaption>
+            </figure>
+          </li>
+        </ol>
+
+        <h2>Try it</h2>
+        <p>
+          Run the shortcuts after building—Set first, then Get.
+        </p>
+        <ol class="steps">
+          <li>
+            <p>Run <strong>Set Today Focus</strong>.</p>
+          </li>
+          <li>
+            <p>
+              Run <strong>Get Today Focus</strong> and confirm the result shows
+              your focus tag.
+            </p>
+          </li>
+        </ol>
+
+        <h2>View in the app</h2>
+        <p>
+          Use the app only to <strong>confirm</strong> what Shortcuts wrote—you
+          do not need to create the variable in the Variables UI for this
+          example.
+        </p>
+        <ol class="steps">
+          <li>
+            <p>
+              Open AnyStash → <strong>Variables</strong> and confirm
+              <code>todayFocus</code> (under General / the matching Key Path)
+              shows the same value.
+            </p>
+            <figure class="shot">
+              <img
+                src="../assets/variables-03-app.png"
+                alt="AnyStash Variables tab showing todayFocus under General"
+                width="390"
+                height="844"
+                loading="lazy"
+              />
+              <figcaption>Variables tab — view todayFocus</figcaption>
+            </figure>
+          </li>
+        </ol>
+
+        <div class="callout">
+          <p>
+            <strong>Key Path:</strong> <code>@General.todayFocus</code> —
+            module <code>General</code>, key <code>todayFocus</code>. More
+            rules and examples:
+            <a href="../../support/#concepts">Concepts</a>.
+          </p>
+        </div>
+
+        <h2>Next</h2>
+        <ul>
+          <li>
+            <a href="../../support/#concepts">Concepts</a> — Key Path syntax
+          </li>
+          <li>
+            <a href="../parking/">Parking example</a> — Live Activity +
+            Automations
+          </li>
+          <li><a href="../">All examples</a></li>
+        </ul>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>© 2026 White Dwarf Technology Co., Ltd.</span>
+        <span>
+          <a href="../">Examples</a>
+          ·
+          <a href="../../support/">Support</a>
+          ·
+          <a href="../../privacy/">Privacy</a>
+          ·
+          <a href="../../terms/">Terms</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
