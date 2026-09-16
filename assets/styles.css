@@ -70,7 +70,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.65rem;
   padding: 0.9rem 0;
 }
 
@@ -84,6 +84,7 @@ a:hover {
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: -0.03em;
+  flex-shrink: 0;
 }
 
 .brand span {
@@ -93,8 +94,9 @@ a:hover {
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 1.1rem;
+  gap: 0.2rem 0.55rem;
   font-size: 0.95rem;
+  justify-content: flex-end;
 }
 
 .nav a {
@@ -106,6 +108,19 @@ a:hover {
 .nav a:hover,
 .nav a[aria-current="page"] {
   color: var(--accent-deep);
+}
+
+/* Prefer tighter gaps over smaller type on ~iPhone 11 widths */
+@media (max-width: 430px) {
+  .site-header__inner {
+    gap: 0.4rem;
+    padding: 0.8rem 0;
+  }
+
+  .nav {
+    flex-wrap: nowrap;
+    gap: 0.1rem 0.38rem;
+  }
 }
 
 main {
