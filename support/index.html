@@ -266,19 +266,40 @@
             <p>
               Global variables let other shortcuts <strong>Set</strong> and
               <strong>Get</strong> values you stash in AnyStash—text, numbers,
-              yes/no, lists, dictionaries, and files.
+              yes/no, lists, dictionaries, and <strong>files</strong>.
             </p>
             <p>
               Organize them with <strong>Modules</strong>. Use a
               <strong>key path</strong> to read or update a nested field without
-              replacing the whole value. See the next item for the full key path
-              syntax.
+              replacing the whole value. Browse and preview files in the
+              app—unlike a single named memory slot in Shortcuts. See the next
+              item for the full key path syntax.
             </p>
             <p>
-              Data stays on your device by default; optional iCloud uses your
-              Apple ID. See <a href="../privacy/">Privacy</a> for details. In
-              the app, use <strong>More → Copy Key Path</strong> when editing a
+              iCloud sync is under your Apple ID. Files can stay on this device
+              only. See <a href="../privacy/">Privacy</a> for details. In the
+              app, use <strong>More → Copy Key Path</strong> when editing a
               variable to avoid typing mistakes.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              How is this different from Shortcuts Storage on iOS 27?
+            </summary>
+            <p>
+              iOS 27 Shortcuts can <strong>Store / Get / Delete</strong> content
+              between runs, including a <strong>Global Value</strong> shared
+              across shortcuts. That’s great for simple counters, text, or
+              lists.
+            </p>
+            <p>
+              AnyStash is a <strong>browsable variable library</strong>: typed
+              values and <strong>files</strong>, <strong>modules</strong>,
+              <strong>key paths</strong> for nested updates, and the same app as
+              your event sessions and Live Activities. Use system Storage for a
+              quick memory; use AnyStash when you need structure, file
+              management, or session-related workflows.
             </p>
           </details>
 
@@ -349,9 +370,17 @@
           <details>
             <summary>Where is my data stored?</summary>
             <p>
-              Sessions, locations, and variables stay on your device by default.
-              Optional iCloud Drive / CloudKit sync uses your Apple ID. See the
-              <a href="../privacy/">Privacy Policy</a> for details.
+              Sessions, locations, and variable
+              <strong>metadata</strong> sync via Apple
+              <strong>CloudKit</strong> when you’re signed into iCloud (we don’t
+              run our own content servers).
+            </p>
+            <p>
+              Variable <strong>files</strong> can use
+              <strong>iCloud Drive</strong> or stay on this device only.
+            </p>
+            <p>
+              See the <a href="../privacy/">Privacy Policy</a> for details.
             </p>
           </details>
         </div>
