@@ -436,23 +436,67 @@
 
         <h2 id="troubleshooting">Troubleshooting</h2>
         <div class="faq">
-          <details>
-            <summary>Live Activities do not appear on the Lock Screen</summary>
+          <details id="live-activity-missing">
+            <summary>
+              Why didn’t a new Live Activity appear? (Lock Screen / Dynamic
+              Island)
+            </summary>
             <p>
-              Open iOS Settings → AnyStash and confirm Live Activities are
-              allowed. Also check Focus modes that may hide Live Activities.
-              System limit: about five Live Activities per app at once.
+              First open <strong>Events</strong> in AnyStash. From Shortcuts, a
+              missing Island often still means the
+              <strong>Event Session</strong> was saved—the run did not
+              necessarily fail.
             </p>
+            <p><strong>Check in order:</strong></p>
+            <ol>
+              <li>
+                <strong>Show Live Activity</strong> is On for that Start (default
+                On). If Off, only the session is created—no Island is requested.
+              </li>
+              <li>
+                <strong>System permission:</strong> iOS Settings → AnyStash →
+                allow Live Activities. Also check Focus modes that may hide Live
+                Activities.
+              </li>
+              <li>
+                <strong>If Live Activity Limit Reached</strong> (when about five
+                Islands are already active for AnyStash)—this only affects the
+                <em>display</em>, not ending other sessions:
+                <ul>
+                  <li>
+                    <strong>Smart</strong> / <strong>End Oldest</strong>: tries
+                    to free a slot, then show yours; if that still fails, the
+                    session can remain without a new Island.
+                  </li>
+                  <li>
+                    <strong>Elapsed Only</strong>: only frees Islands past their
+                    planned due time; if none are elapsed, you get
+                    <strong>no new Island</strong> while the session can still
+                    save.
+                  </li>
+                  <li>
+                    <strong>Fail</strong>: does not free a slot; Start fails and
+                    <strong>no new session</strong> is created.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>From the app</strong> with Show Live Activity On: if Live
+                Activities are disabled for AnyStash, Start is blocked until you
+                enable them (unlike many Shortcuts runs, which can still save the
+                session).
+              </li>
+              <li>
+                Ending or dismissing a Live Activity alone does
+                <strong>not</strong> end the Event Session—use
+                <strong>Phase → End</strong>.
+              </li>
+            </ol>
             <p>
-              From Shortcuts, a missing Island does
-              <strong>not</strong> always mean the shortcut failed: with
-              <strong>Show Live Activity</strong> On, AnyStash still tries to
-              save the <strong>Event Session</strong>. Check the
-              <strong>Events</strong> tab. Only
-              <strong>If Live Activity Limit Reached → Fail</strong> refuses to
-              create a new session when the Island cannot start. Ending a Live
-              Activity alone does not end the Event Session—use
-              <strong>Phase → End</strong> on the session.
+              Parameter details:
+              <a href="../examples/parking/#parameter-guide">Parking → Parameter guide</a>
+              · older Start/Stop actions:
+              <a href="#legacy-live-activity">Legacy Live Activity</a>.
             </p>
           </details>
           <details>
