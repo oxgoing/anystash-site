@@ -6,7 +6,7 @@
     <title>Parking example — AnyStash</title>
     <meta
       name="description"
-      content="Build or import AnyStash shortcuts to start and stop a Parking Live Activity, review the Event Session in the app, and add them to Automations yourself."
+      content="Build or import AnyStash shortcuts for a Parking Event Session (optional Live Activity), review it under Events, and add them to Automations yourself."
     />
     <meta name="application-name" content="AnyStash" />
     <link rel="canonical" href="https://anystash.izip.vip/examples/parking/" />
@@ -15,7 +15,7 @@
     <meta property="og:title" content="Parking example — AnyStash" />
     <meta
       property="og:description"
-      content="Start/stop Parking Live Activities from Shortcuts, check Events in AnyStash, then attach your imported shortcuts to Automations."
+      content="Start/end Parking Event Sessions from Shortcuts (optional Live Activity), check Events in AnyStash, then attach them to Automations."
     />
     <meta property="og:url" content="https://anystash.izip.vip/examples/parking/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,17 +47,25 @@
 
         <h2>What you’ll build</h2>
         <p>
-          Two shortcuts: <strong>Start Parking</strong> (Live Activity + Event
-          Session) and <strong>End Parking</strong>. You’ll run them by hand,
-          confirm the session under <strong>Events</strong> in AnyStash, then
-          attach those same shortcuts to system Automations—for example
-          <strong>When CarPlay connects</strong> / <strong>disconnects</strong>
-          (or car Bluetooth if CarPlay isn’t available).
+          Two shortcuts: <strong>Start Parking</strong> (Event Session with
+          optional Live Activity) and <strong>End Parking</strong>. You’ll run
+          them by hand, confirm the session under <strong>Events</strong> in
+          AnyStash, then attach those same shortcuts to system Automations—for
+          example <strong>When CarPlay connects</strong> /
+          <strong>disconnects</strong> (or car Bluetooth if CarPlay isn’t
+          available).
         </p>
         <p>
-          This is a timed parking <em>session</em> on the Lock Screen and
-          Dynamic Island with history in the app—not only a parked-car pin in
-          Maps, and not a calendar appointment.
+          This is a parking <em>Event Session</em>—history in the app, with an
+          optional timed Live Activity on the Lock Screen and Dynamic
+          Island—not only a parked-car pin in Maps, and not a calendar
+          appointment.
+        </p>
+        <p class="cta-note">
+          Build steps below use <strong>Event Session (Live Activity)</strong>.
+          Imported Add Shortcut links and older screenshots may still show the
+          legacy <strong>Start Live Activity</strong> name until those assets
+          are re-exported.
         </p>
 
         <h2>Add Shortcut</h2>
@@ -93,17 +101,20 @@
             <p>
               In the Shortcuts app, create a new shortcut. Search
               <strong>AnyStash</strong> and add
-              <strong>Start Live Activity</strong>.
+              <strong>Event Session (Live Activity)</strong>.
             </p>
             <figure class="shot">
               <img
                 src="../assets/parking-01-add-start.png"
-                alt="Shortcuts Add Action search for AnyStash showing Start Live Activity"
+                alt="Shortcuts Add Action search for AnyStash showing Event Session (Live Activity)"
                 width="390"
                 height="844"
                 loading="lazy"
               />
-              <figcaption>Add Start Live Activity from AnyStash</figcaption>
+              <figcaption>
+                Add Event Session (Live Activity) from AnyStash (screenshot may
+                show the older Start Live Activity label until refreshed)
+              </figcaption>
             </figure>
           </li>
           <li>
@@ -111,6 +122,9 @@
               Configure the action (parking essentials first):
             </p>
             <ul>
+              <li>
+                <strong>Phase:</strong> <strong>Start</strong>
+              </li>
               <li>
                 <strong>Category:</strong> <strong>Parking</strong>
               </li>
@@ -138,22 +152,24 @@
               </li>
               <li>
                 <strong>Everything else:</strong> leave the defaults.
-                <strong>Save as Event Session</strong> is On by default (so the
-                session appears under Events). You do not need to set a
-                <strong>Timer</strong> unless you want a countdown.
+                <strong>Show Live Activity</strong> is On by default. For other
+                fields (timer, reminder, when the Island is full, ending by a
+                specific session), see
+                <a href="#parameter-guide">Parameter guide</a> below.
               </li>
             </ul>
             <figure class="shot">
               <img
                 src="../assets/parking-02-params.png"
-                alt="Start Live Activity configured with Category Parking and Current Location"
+                alt="Event Session (Live Activity) configured with Category Parking and Current Location"
                 width="390"
                 height="844"
                 loading="lazy"
               />
               <figcaption>
-                Category Parking; Location = Current Location (or Use Current
-                Location); other fields left at defaults
+                Phase Start; Category Parking; Location = Current Location (or
+                Use Current Location); Show Live Activity On; other fields left
+                at defaults
               </figcaption>
             </figure>
           </li>
@@ -161,33 +177,157 @@
             <p>
               Create a second shortcut named like
               <strong>End Parking</strong>: add
-              <strong>Stop Live Activity</strong> (do not run it yet).
+              <strong>Event Session (Live Activity)</strong> again, set
+              <strong>Phase</strong> to <strong>End</strong>. For parking,
+              leave <strong>End By</strong> as <strong>Category</strong> and
+              <strong>Category</strong> as <strong>Parking</strong> (do not run
+              it yet). That ends the session and dismisses a linked Live
+              Activity. To end one specific session from a prior action’s
+              result, see
+              <a href="#parameter-guide">Parameter guide → End</a>.
             </p>
             <figure class="shot">
               <img
                 src="../assets/parking-03-add-stop.png"
-                alt="End Parking shortcut with Stop Live Activity"
+                alt="End Parking shortcut with Event Session Phase End"
                 width="390"
                 height="844"
                 loading="lazy"
               />
-              <figcaption>Add Stop Live Activity for End Parking</figcaption>
+              <figcaption>
+                End Parking — Event Session (Live Activity), Phase End
+                (screenshot may still show Stop Live Activity until refreshed)
+              </figcaption>
             </figure>
           </li>
         </ol>
 
+        <h2 id="parameter-guide">Parameter guide</h2>
+        <p>
+          Parking works with the essentials above. Open a section only when you
+          need that field—defaults are fine for most automations.
+        </p>
+        <div class="faq">
+          <details>
+            <summary>Start — Show Live Activity, timer, reminder</summary>
+            <ul>
+              <li>
+                <strong>Show Live Activity</strong> (default On): request Lock
+                Screen / Dynamic Island. Off = session only. In automations,
+                Island display is best-effort; the session can still save if
+                the Island cannot appear (unless Fail when full—below).
+              </li>
+              <li>
+                <strong>Timer Mode</strong>: Count Up (default) or Countdown.
+                Countdown needs <strong>Planned Duration</strong>.
+              </li>
+              <li>
+                <strong>Planned Duration</strong>: optional length (max 12
+                hours). Sets reminder due time and countdown end. Does
+                <strong>not</strong> auto-end the session or Island.
+              </li>
+              <li>
+                <strong>Reminder</strong>: Off, at due time, or minutes before.
+                Needs Planned Duration. Stays scheduled if you only dismiss the
+                Island; ending the session cancels it.
+              </li>
+              <li>
+                <strong>Title / Subtitle / Notes</strong>: optional labels for
+                Island and Events history.
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary>Start — If Live Activity Limit Reached</summary>
+            <p>
+              When about five Live Activities are already active for AnyStash,
+              this chooses what happens to the <em>Island display</em>—it does
+              <strong>not</strong> end other Event Sessions.
+            </p>
+            <ul>
+              <li>
+                <strong>Smart</strong> (default): free a slot (elapsed first,
+                then oldest), then show the new Island.
+              </li>
+              <li>
+                <strong>End Oldest</strong>: end the oldest Island, then show
+                the new one.
+              </li>
+              <li>
+                <strong>Elapsed Only</strong>: only free Islands past their
+                planned due time; if none, continue <strong>without</strong> a
+                new Island (session can still save).
+              </li>
+              <li>
+                <strong>Fail</strong>: don’t free a slot; the whole Start fails
+                (no new session).
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary>Start — one session vs several in a category</summary>
+            <ul>
+              <li>
+                <strong>Active Per Category</strong>: Single Active (default) or
+                Allow Multiple (Pro).
+              </li>
+              <li>
+                <strong>If Category Already Active</strong> (Single Active):
+                Fail (default) or Auto Close Previous, then start.
+              </li>
+            </ul>
+          </details>
+          <details id="parameter-guide-end">
+            <summary>End — End By Category vs Event Session</summary>
+            <ul>
+              <li>
+                <strong>End By → Category</strong> (typical for Parking): pick
+                Category = Parking (and policies if several actives match).
+              </li>
+              <li>
+                <strong>End By → Event Session</strong>: pass the
+                <strong>Event Session</strong> from a previous Get / Start
+                result (preferred). Leave
+                <strong>Session ID (Legacy)</strong> empty unless an old
+                shortcut still passes a UUID string.
+              </li>
+              <li>
+                <strong>If None Active / If Multiple Active</strong>: Fail,
+                Skip, or pick Latest / Earliest / All—use when ending by
+                Category and matches are ambiguous.
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary>Phase — Start, End, Checkpoint</summary>
+            <p>
+              <strong>Phase</strong> defaults to <strong>Start</strong>. For a
+              log-only check-in style action, set <strong>Checkpoint</strong>
+              explicitly—do not rely on an old shortcut that left Phase unset.
+            </p>
+          </details>
+        </div>
+        <p class="cta-note">
+          Still using older <strong>Start Live Activity</strong> /
+          <strong>Stop Live Activity</strong> actions?
+          See
+          <a href="../../support/#legacy-live-activity">Support → legacy Live Activity</a>.
+        </p>
+
         <h2>Try it</h2>
         <p>
-          Run the shortcuts you built (or imported). This is where you confirm
-          the Live Activity—not while configuring parameters above.
+          Run the shortcuts you built (or imported). Confirm the Event Session
+          under Events; with Show Live Activity On, also confirm the Island—not
+          while configuring parameters above.
         </p>
         <ol class="steps">
           <li>
             <p>
-              Run <strong>Start Parking</strong>. Confirm the
-              <strong>Live Activity</strong> appears on the Lock Screen or
-              Dynamic Island (timer / title). This is the in-progress parking
-              surface, separate from the Events list in the app.
+              Run <strong>Start Parking</strong>. Confirm an in-progress
+              Parking row under <strong>Events</strong>. With Show Live Activity
+              On, also confirm the <strong>Live Activity</strong> on the Lock
+              Screen or Dynamic Island (timer / title). If the Island cannot
+              appear, the session can still succeed—check Events.
             </p>
             <figure class="shot">
               <img
@@ -204,8 +344,8 @@
           </li>
           <li>
             <p>
-              Run <strong>End Parking</strong>. The Live Activity should
-              dismiss.
+              Run <strong>End Parking</strong>. The Event Session should end in
+              Events; a linked Live Activity should dismiss with it.
             </p>
           </li>
         </ol>
@@ -220,8 +360,7 @@
           <li>
             <p>
               After Start Parking, open AnyStash → <strong>Events</strong> and
-              open the in-progress Parking session (requires Save as Event
-              Session On).
+              open the in-progress Parking session.
             </p>
             <figure class="shot">
               <img
@@ -276,8 +415,8 @@
             Automations yourself. You can
             <strong>Run Shortcut</strong> (your imported or newly built
             Start/End Parking) <em>or</em> add AnyStash’s
-            <strong>Start Live Activity</strong> /
-            <strong>Stop Live Activity</strong> actions directly.
+            <strong>Event Session (Live Activity)</strong> action directly
+            (Phase Start / End).
           </p>
         </div>
         <ol class="steps">
@@ -329,11 +468,11 @@
                 built; or
               </li>
               <li>
-                Skip the wrapper and add AnyStash’s actions directly—
-                <strong>Start Live Activity</strong> or
-                <strong>Stop Live Activity</strong>—with the same settings as
-                in Build it yourself (for example Category =
-                <strong>Parking</strong>).
+                Skip the wrapper and add AnyStash’s
+                <strong>Event Session (Live Activity)</strong> directly—Phase
+                <strong>Start</strong> or <strong>End</strong>—with the same
+                settings as in Build it yourself (for example Category =
+                <strong>Parking</strong>, Show Live Activity On for Start).
               </li>
             </ul>
             <p>
@@ -372,9 +511,9 @@
                 <strong>use an existing shortcut</strong>. After it’s created,
                 that picker isn’t available the same way—to attach a library
                 shortcut, use <strong>Add Action → Run Shortcut</strong>, then
-                choose yours. AnyStash actions like
-                <strong>Start Live Activity</strong> can still be added
-                directly. Screenshots follow this edit path.
+                choose yours. AnyStash
+                <strong>Event Session (Live Activity)</strong> can still be
+                added directly. Screenshots follow this edit path.
               </p>
             </details>
           </li>

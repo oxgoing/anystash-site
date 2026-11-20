@@ -75,33 +75,50 @@
         <h2 id="concepts">Concepts</h2>
         <div class="faq">
           <details>
-            <summary>How do I start a Live Activity from Shortcuts?</summary>
+            <summary>
+              How do I start an Event Session (and Live Activity) from Shortcuts?
+            </summary>
             <p>
               In the Shortcuts app, add
-              <strong>Start Live Activity</strong> from AnyStash. Pick an Event
-              Category (for example Parking), set the timer if you need one,
-              leave <strong>Save as Event Session</strong> on if you want a
-              record under Events, then run the shortcut.
+              <strong>Event Session (Live Activity)</strong> from AnyStash. Set
+              <strong>Phase</strong> to <strong>Start</strong>, pick an Event
+              Category (for example Parking), and leave
+              <strong>Show Live Activity</strong> <strong>On</strong> (default)
+              if you want the Lock Screen / Dynamic Island display. Run the
+              shortcut—the session is saved under <strong>Events</strong> even
+              if the Island cannot appear (unless you chose a Fail-when-full
+              policy).
             </p>
             <p>
               You can also start from AnyStash:
-              <strong>More → Start Live Activity</strong>.
+              <strong>More → Event Session</strong> (or the Record Event sheet).
+              Home Screen quick actions may show the shorter label
+              <strong>Event Session</strong>.
             </p>
             <p>
-              To finish: use <strong>Stop Live Activity</strong> and/or end the
-              Event Session. Open the <strong>Events</strong> tab to review what
-              you saved.
+              <strong>Phase</strong> defaults to <strong>Start</strong>. For a
+              log-only check-in style run, set <strong>Checkpoint</strong>
+              explicitly.
             </p>
             <p>
-              If nothing appears on the Lock Screen, see
-              <a href="#troubleshooting">Troubleshooting</a> below.
+              To finish: run the same action with <strong>Phase → End</strong>
+              (ends the session; linked Live Activity dismisses with it). End by
+              <strong>Category</strong>, or pick a specific
+              <strong>Event Session</strong> from a previous result. Open the
+              <strong>Events</strong> tab to review what you saved.
             </p>
             <p>
               Prefer a guided walkthrough with screenshots and importable
               shortcuts? See
               <a href="../examples/parking/">Parking example</a>
+              (including the
+              <a href="../examples/parking/#parameter-guide">parameter guide</a>)
               under
-              <a href="../examples/">Examples</a>.
+              <a href="../examples/">Examples</a>. If nothing appears on the Lock
+              Screen, see
+              <a href="#troubleshooting">Troubleshooting</a> below. Still on
+              older Start/Stop Live Activity actions?
+              <a href="#legacy-live-activity">Legacy Live Activity shortcuts</a>.
             </p>
           </details>
 
@@ -119,24 +136,55 @@
               An <strong>Event Session</strong> is the activity record in
               AnyStash—Start, optional Checkpoints, then End—so you can open it
               in the app <strong>while it is running</strong> and again later in
-              history (notes, category, linked locations).
+              history (notes, category, linked locations). The session is the
+              primary unit for history, conflicts, and Free daily limits.
             </p>
             <p>
-              They often work <strong>together</strong>. When you start a Live
-              Activity, turn <strong>Save as Event Session</strong>
-              <strong>On</strong> (the parameter in the Start Live Activity
-              shortcut and in-app form; <strong>On by default</strong>) to
-              create a linked session at the same time. You will see the Island
-              <strong>and</strong> the session under Events in the app. Turn it
-              <strong>Off</strong> if you only want the Island display for this
-              start. You can also record an Event Session without starting a
-              Live Activity.
+              They often work <strong>together</strong>. On
+              <strong>Event Session (Live Activity)</strong>, turn
+              <strong>Show Live Activity</strong> <strong>On</strong> (default)
+              to request the Island while the session is created. Turn it
+              <strong>Off</strong> for a session-only start. In Shortcuts
+              automations, showing the Island is best-effort: if the system
+              cannot start a Live Activity, the Event Session can still succeed
+              (except when <strong>If Live Activity Limit Reached</strong> is
+              <strong>Fail</strong>).
             </p>
             <p>
               In short: the Live Activity is the system surface for “in
               progress”; the Event Session is the in-app record you can browse
               anytime—during and after. “Event” here is not a calendar
-              appointment.
+              appointment. For older Start/Stop Live Activity actions, see
+              <a href="#legacy-live-activity">Legacy Live Activity shortcuts</a>.
+            </p>
+          </details>
+
+          <details id="legacy-live-activity">
+            <summary>
+              I still have Start Live Activity / Stop Live Activity shortcuts—do
+              they work?
+            </summary>
+            <p>
+              Yes. Existing shortcuts that use
+              <strong>Start Live Activity</strong> or
+              <strong>Stop Live Activity</strong> keep working. Those actions
+              are deprecated for <em>new</em> shortcuts—prefer
+              <strong>Event Session (Live Activity)</strong> with
+              <strong>Show Live Activity</strong> On (or Off for session-only).
+            </p>
+            <p>
+              <strong>Start Live Activity</strong> still starts a linked Event
+              Session and returns a Live Activity ID (needed by some older
+              flows). <strong>Stop Live Activity</strong> can stop by Activity
+              ID; to end the session record itself, prefer
+              <strong>Event Session</strong> with <strong>Phase → End</strong>
+              (by Category or by Event Session).
+            </p>
+            <p>
+              Rebuild guide:
+              <a href="../examples/parking/">Parking example</a>
+              · parameter details:
+              <a href="../examples/parking/#parameter-guide">Parameter guide</a>.
             </p>
           </details>
 
@@ -188,21 +236,22 @@
             <summary>What are Free daily start limits?</summary>
             <p>
               After a short intro period, Free includes a limited number of
-              <strong>starts</strong> per local day. See
+              <strong>Event Session starts</strong> per local day. See
               <strong>Settings → Usage</strong> in the app for your remaining
-              count. Pro Lifetime has unlimited starts.
+              count and <strong>What Counts</strong>. Pro Lifetime has unlimited
+              Event Session starts.
             </p>
             <p>
-              <strong>Counts as a start:</strong> Start Live Activity; Event
-              Start; Event Checkpoint.
-              <strong>Does not count:</strong> End; Stop Live Activity; Check In
-              or other standalone location saves.
+              <strong>Counts as a start:</strong> Event Session
+              <strong>Start</strong> and <strong>Checkpoint</strong> (including
+              when Show Live Activity is On—still one start). Legacy Start Live
+              Activity also counts once.
+              <strong>Does not count:</strong> Event Session End; Stop Live
+              Activity; Check In or other standalone location saves.
             </p>
             <p>
-              If you Start Live Activity with
-              <strong>Save as Event Session</strong> on, that still counts as
-              <strong>one</strong> start (not two). Ending or checking in never
-              uses the start quota.
+              Ending a session or checking in never uses the Event Session
+              start quota.
             </p>
           </details>
 
@@ -394,6 +443,17 @@
               allowed. Also check Focus modes that may hide Live Activities.
               System limit: about five Live Activities per app at once.
             </p>
+            <p>
+              From Shortcuts, a missing Island does
+              <strong>not</strong> always mean the shortcut failed: with
+              <strong>Show Live Activity</strong> On, AnyStash still tries to
+              save the <strong>Event Session</strong>. Check the
+              <strong>Events</strong> tab. Only
+              <strong>If Live Activity Limit Reached → Fail</strong> refuses to
+              create a new session when the Island cannot start. Ending a Live
+              Activity alone does not end the Event Session—use
+              <strong>Phase → End</strong> on the session.
+            </p>
           </details>
           <details>
             <summary>I bought Pro but features still look locked</summary>
@@ -416,13 +476,13 @@
             </p>
           </details>
           <details>
-            <summary>Notifications or Alarms for timed Live Activities</summary>
+            <summary>Notifications or Alarms for planned event sessions</summary>
             <p>
-              Optional reminders when a timed Live Activity ends need
+              Optional reminders when a planned event session is due need
               Notifications and/or Alarms. Manage them in
               <strong>AnyStash → Settings → Permissions</strong>, or in iOS
               Settings → AnyStash. If access was denied earlier, re-enable it
-              there before the next timed session.
+              there before the next planned session.
             </p>
           </details>
         </div>
