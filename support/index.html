@@ -496,7 +496,72 @@
               Parameter details:
               <a href="../examples/parking/#parameter-guide">Parking → Parameter guide</a>
               · older Start/Stop actions:
-              <a href="#legacy-live-activity">Legacy Live Activity</a>.
+              <a href="#legacy-live-activity">Legacy Live Activity</a>
+              · why an older Island disappeared:
+              <a href="#live-activity-disappeared">below</a>.
+            </p>
+          </details>
+          <details id="live-activity-disappeared">
+            <summary>
+              Why did an older Live Activity disappear on its own?
+            </summary>
+            <p>
+              The Lock Screen / Dynamic Island is only the
+              <strong>display</strong>. If an older Island goes away, open
+              <strong>Events</strong>—the linked
+              <strong>Event Session</strong> is often still there until you
+              explicitly End it.
+            </p>
+            <p><strong>Common causes:</strong></p>
+            <ul>
+              <li>
+                <strong>Starting another session with Show Live Activity On</strong>
+                while about five Islands were already active. Depending on
+                <strong>If Live Activity Limit Reached</strong>:
+                <ul>
+                  <li>
+                    <strong>Smart</strong> or <strong>End Oldest</strong> may
+                    dismiss an older Island to free a slot for the new one.
+                  </li>
+                  <li>
+                    <strong>Elapsed Only</strong> may dismiss only Islands past
+                    their planned due time.
+                  </li>
+                  <li>
+                    In the <strong>app</strong>, you may have confirmed ending an
+                    older Live Activity to continue—that removes the Island, not
+                    the older Event Session.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>You ended the Event Session</strong> (Phase → End, or
+                End in the app)—the linked Island dismisses with it.
+              </li>
+              <li>
+                <strong>Auto Close Previous</strong> when starting in a category
+                that already had an active session (Single Active)—the previous
+                session ends and its Island goes away.
+              </li>
+              <li>
+                <strong>Stop Live Activity</strong> (or an automation that stops
+                by Activity ID / category).
+              </li>
+              <li>
+                <strong>You dismissed the Island</strong> (swipe away). That does
+                not end the Event Session by itself.
+              </li>
+              <li>
+                <strong>iOS</strong> may clear Live Activities after a long time
+                or under system limits—again, check Events for the session
+                record.
+              </li>
+            </ul>
+            <p>
+              Related:
+              <a href="#live-activity-missing">Why didn’t a new Live Activity appear?</a>
+              ·
+              <a href="../examples/parking/#parameter-guide">Parameter guide</a>.
             </p>
           </details>
           <details>
