@@ -62,27 +62,28 @@
           appointment.
         </p>
         <p class="cta-note">
-          Build steps below use <strong>Event Session (Live Activity)</strong>.
-          Imported Add Shortcut links and older screenshots may still show the
-          legacy <strong>Start Live Activity</strong> name until those assets
-          are re-exported.
+          Add Shortcut and Build steps use
+          <strong>Event Session (Live Activity)</strong>. Prefer these links
+          for new setups. Still on older Start/Stop Live Activity shortcuts?
+          See
+          <a href="../../support/#legacy-live-activity">Support → legacy Live Activity</a>.
         </p>
 
         <h2>Add Shortcut</h2>
         <div class="cta-row">
-          <!-- ICLOUD: START_PARKING -->
+          <!-- ICLOUD: START_PARKING (Event Session; 2026-11-24) -->
           <a
             class="btn btn--primary"
-            href="https://www.icloud.com/shortcuts/1923ad0a05804fd1a30e4fd3b4494219"
+            href="https://www.icloud.com/shortcuts/b1ef363f155d4f2cb581363d37f81989"
             data-shortcut="start-parking"
             target="_blank"
             rel="noopener noreferrer"
             >Add Start Parking</a
           >
-          <!-- ICLOUD: END_PARKING -->
+          <!-- ICLOUD: END_PARKING (Event Session; 2026-11-24) -->
           <a
             class="btn btn--ghost"
-            href="https://www.icloud.com/shortcuts/b9c0720cd01e454d8f4fc6dab2b673ae"
+            href="https://www.icloud.com/shortcuts/3f75137a449e44398318c1a35bb154d2"
             data-shortcut="end-parking"
             target="_blank"
             rel="noopener noreferrer"
@@ -112,8 +113,7 @@
                 loading="lazy"
               />
               <figcaption>
-                Add Event Session (Live Activity) from AnyStash (screenshot may
-                show the older Start Live Activity label until refreshed)
+                Add Event Session (Live Activity) from AnyStash
               </figcaption>
             </figure>
           </li>
@@ -196,7 +196,6 @@
               />
               <figcaption>
                 End Parking — Event Session (Live Activity), Phase End
-                (screenshot may still show Stop Live Activity until refreshed)
               </figcaption>
             </figure>
           </li>
@@ -306,7 +305,12 @@
             <p>
               <strong>Phase</strong> defaults to <strong>Start</strong>. For a
               log-only check-in style action, set <strong>Checkpoint</strong>
-              explicitly—do not rely on an old shortcut that left Phase unset.
+              explicitly—if Phase is blank, the action runs as
+              <strong>Start</strong>, not Checkpoint. Updated from
+              <strong>1.0.1 or earlier</strong> with a blank Phase? See
+              <a href="../../support/#event-session-phase-unset"
+                >Support → Phase after 1.0.1</a
+              >.
             </p>
           </details>
         </div>
@@ -573,5 +577,6 @@
         </span>
       </div>
     </footer>
+    <script src="../../assets/faq-hash.js" defer></script>
   </body>
 </html>

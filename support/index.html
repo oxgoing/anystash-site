@@ -160,36 +160,6 @@
             </p>
           </details>
 
-          <details id="legacy-live-activity">
-            <summary>
-              Do my older (deprecated) Start Live Activity / Stop Live Activity
-              shortcuts still work?
-            </summary>
-            <p>
-              Yes—they keep working. <strong>Start Live Activity</strong> and
-              <strong>Stop Live Activity</strong> are
-              <strong>legacy</strong> actions: still supported for existing
-              shortcuts, but <strong>deprecated</strong> for
-              <em>new</em> ones. Prefer
-              <strong>Event Session (Live Activity)</strong> with
-              <strong>Show Live Activity</strong> On (or Off for session-only).
-            </p>
-            <p>
-              <strong>Start Live Activity</strong> still starts a linked Event
-              Session and returns a Live Activity ID (needed by some older
-              flows). <strong>Stop Live Activity</strong> can stop by Activity
-              ID; to end the session record itself, prefer
-              <strong>Event Session</strong> with <strong>Phase → End</strong>
-              (by Category or by Event Session).
-            </p>
-            <p>
-              Rebuild guide:
-              <a href="../examples/parking/">Parking example</a>
-              · parameter details:
-              <a href="../examples/parking/#parameter-guide">Parameter guide</a>.
-            </p>
-          </details>
-
           <details>
             <summary>
               How is AnyStash different from Apple Calendar events or Apple
@@ -436,6 +406,59 @@
               See the <a href="../privacy/">Privacy Policy</a> for details.
             </p>
           </details>
+
+          <details id="legacy-live-activity">
+            <summary>
+              Legacy Live Activity — do my Start / Stop Live Activity shortcuts
+              still work?
+            </summary>
+            <p>
+              Yes. Existing shortcuts that use
+              <strong>Start Live Activity</strong> or
+              <strong>Stop Live Activity</strong> keep working. For new
+              shortcuts, use <strong>Event Session (Live Activity)</strong>
+              instead (turn <strong>Show Live Activity</strong> On for the
+              Island, or Off for session-only).
+            </p>
+            <p>
+              What they do today:
+            </p>
+            <ul>
+              <li>
+                <strong>Start Live Activity</strong> — starts an Event Session
+                and can show the Island; returns a Live Activity ID.
+              </li>
+              <li>
+                <strong>Stop Live Activity</strong> — removes the Island
+                <strong>and ends the linked Event Session</strong>.
+              </li>
+            </ul>
+            <p>
+              Rebuild guide:
+              <a href="../examples/parking/">Parking example</a>
+              · parameter details:
+              <a href="../examples/parking/#parameter-guide">Parameter guide</a>.
+            </p>
+          </details>
+
+          <details id="event-session-phase-unset">
+            <summary>
+              Event Session — Phase blank after updating from 1.0.1 or earlier?
+            </summary>
+            <p>
+              On AnyStash <strong>1.0.1 and earlier</strong>, some Event Session
+              shortcuts left <strong>Phase</strong> blank. After you update,
+              a blank Phase uses the current default:
+              <strong>Start</strong>—not Checkpoint. A shortcut that used to
+              behave like a log-only check-in may now start a session.
+            </p>
+            <p>
+              Fix: open the shortcut and set <strong>Phase</strong> explicitly
+              to <strong>Start</strong>, <strong>End</strong>, or
+              <strong>Checkpoint</strong>, then save. Going forward, always pick
+              Phase on purpose (don’t leave it blank).
+            </p>
+          </details>
         </div>
 
         <h2 id="troubleshooting">Troubleshooting</h2>
@@ -493,9 +516,10 @@
                 session).
               </li>
               <li>
-                Ending or dismissing a Live Activity alone does
-                <strong>not</strong> end the Event Session—use
-                <strong>Phase → End</strong>.
+                Swiping the Island away only hides the display—it does
+                <strong>not</strong> end the Event Session. To end the session,
+                use <strong>Phase → End</strong>, or
+                <strong>Stop Live Activity</strong> (ends session + Island).
               </li>
             </ol>
             <p>
@@ -552,7 +576,8 @@
               </li>
               <li>
                 <strong>Stop Live Activity</strong> (or an automation that stops
-                by Activity ID / category).
+                by Activity ID / category)—that ends the linked Event Session as
+                well as the Island.
               </li>
               <li>
                 <strong>You dismissed the Island</strong> (swipe away). That does
@@ -617,5 +642,6 @@
         </span>
       </div>
     </footer>
+    <script src="../assets/faq-hash.js" defer></script>
   </body>
 </html>
