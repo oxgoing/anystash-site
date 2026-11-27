@@ -50,16 +50,15 @@
           Two shortcuts: <strong>Start Parking</strong> (Event Session with
           optional Live Activity) and <strong>End Parking</strong>. You’ll run
           them by hand, confirm the session under <strong>Events</strong> in
-          AnyStash, then attach those same shortcuts to system Automations—for
-          example <strong>When CarPlay connects</strong> /
-          <strong>disconnects</strong> (or car Bluetooth if CarPlay isn’t
-          available).
+          AnyStash, then wire Automations—<strong>CarPlay</strong> connect /
+          disconnect if your car actually uses CarPlay, otherwise car
+          <strong>Bluetooth</strong> (shared links often default to CarPlay).
         </p>
         <p>
-          This is a parking <em>Event Session</em>—history in the app, with an
-          optional timed Live Activity on the Lock Screen and Dynamic
-          Island—not only a parked-car pin in Maps, and not a calendar
-          appointment.
+          This is a parking <em>Event Session</em>: optional Live Activity on
+          the Lock Screen and Dynamic Island while you’re away, then
+          <strong>duration</strong>, <strong>location</strong>, and
+          <strong>history</strong> under <strong>Events</strong> in AnyStash.
         </p>
         <p class="cta-note">
           Add Shortcut and Build steps use
@@ -91,9 +90,11 @@
           >
         </div>
         <p class="cta-note">
-          Or rebuild the same actions below. After you import, the shortcuts
-          are <strong>not</strong> added to Automations automatically—see
-          <a href="#automation">Add to an Automation</a>.
+          Or rebuild the same actions below. Shared Start/End Parking may
+          already include <strong>CarPlay</strong> connect/disconnect
+          Automations—see
+          <a href="#automation">Add to an Automation</a>
+          (confirm CarPlay works on your car, or switch to Bluetooth).
         </p>
 
         <h2>Build it yourself</h2>
@@ -129,26 +130,29 @@
                 <strong>Category:</strong> <strong>Parking</strong>
               </li>
               <li>
-                <strong>Location (pick one)—core for parking:</strong>
-                <ul>
-                  <li>
-                    <strong>Recommended:</strong> set the optional
-                    <strong>Location</strong> parameter to Shortcuts’
-                    <strong>Current Location</strong> (system variable). Does
-                    not require AnyStash location permission.
-                  </li>
-                  <li>
-                    Or turn on
+                <strong>Location</strong> (core for parking): set the optional
+                <strong>Location</strong> parameter to Shortcuts’
+                <strong>Current Location</strong> (system variable). This uses
+                the <strong>Shortcuts</strong> app’s location access (iOS
+                Settings → Shortcuts)—not AnyStash’s. If Shortcuts has never
+                been allowed Location, grant it there (or when iOS prompts) or
+                the variable may be empty.
+                <details class="shot-aside">
+                  <summary>Another way to attach location?</summary>
+                  <p>
+                    On the same
+                    <strong>Event Session (Live Activity)</strong> action, open
+                    its details and turn on the AnyStash parameter
                     <strong>Use Current Location (If Already Allowed)</strong>.
+                    That path uses <strong>AnyStash</strong> location access:
                     Shortcuts never shows a permission dialog—AnyStash must
                     already have <strong>Location (When In Use)</strong>
                     (AnyStash → Settings → Permissions, or grant in the app).
                     If access is missing, the action still succeeds but skips
-                    location.
-                  </li>
-                </ul>
-                If <strong>Location</strong> is set,
-                <strong>Use Current Location</strong> is ignored.
+                    location. If <strong>Location</strong> is set,
+                    <strong>Use Current Location</strong> is ignored.
+                  </p>
+                </details>
               </li>
               <li>
                 <strong>Everything else:</strong> leave the defaults.
@@ -161,15 +165,14 @@
             <figure class="shot">
               <img
                 src="../assets/parking-02-params.png"
-                alt="Event Session (Live Activity) configured with Category Parking and Current Location"
+                alt="Start Parking shortcut with Event Session Start in Parking and Current Location"
                 width="390"
                 height="844"
                 loading="lazy"
               />
               <figcaption>
-                Phase Start; Category Parking; Location = Current Location (or
-                Use Current Location); Show Live Activity On; other fields left
-                at defaults
+                Event Session · Start in Parking · Current Location (other
+                fields left at defaults; Show Live Activity On)
               </figcaption>
             </figure>
           </li>
@@ -178,33 +181,258 @@
               Create a second shortcut named like
               <strong>End Parking</strong>: add
               <strong>Event Session (Live Activity)</strong> again, set
-              <strong>Phase</strong> to <strong>End</strong>. For parking,
-              leave <strong>End By</strong> as <strong>Category</strong> and
-              <strong>Category</strong> as <strong>Parking</strong> (do not run
+              <strong>Phase</strong> to <strong>End</strong>,
+              <strong>End By</strong> to <strong>Category</strong>, and
+              <strong>Category</strong> to <strong>Parking</strong> (do not run
               it yet). That ends the session and dismisses a linked Live
-              Activity. To end one specific session from a prior action’s
-              result, see
-              <a href="#parameter-guide">Parameter guide → End</a>.
+              Activity.
             </p>
+            <details class="shot-aside">
+              <summary>Ending a specific session?</summary>
+              <p>
+                To end one session from a prior action’s result (instead of by
+                Category), see
+                <a href="#parameter-guide">Parameter guide → End</a>.
+              </p>
+            </details>
             <figure class="shot">
               <img
                 src="../assets/parking-03-add-stop.png"
-                alt="End Parking shortcut with Event Session Phase End"
+                alt="End Parking shortcut with Event Session End by Category in Parking"
                 width="390"
                 height="844"
                 loading="lazy"
               />
               <figcaption>
-                End Parking — Event Session (Live Activity), Phase End
+                Event Session · End by Category in Parking
               </figcaption>
             </figure>
           </li>
         </ol>
 
+        <h2>Try it</h2>
+        <p>
+          Run the shortcuts you built (or imported). Confirm the Event Session
+          under Events; with Show Live Activity On, also confirm the Island—not
+          while configuring parameters above.
+        </p>
+        <ol class="steps">
+          <li>
+            <p>
+              Run <strong>Start Parking</strong>. Confirm an in-progress
+              Parking row under <strong>Events</strong>. With Show Live Activity
+              On, also confirm the <strong>Live Activity</strong> on the Lock
+              Screen or Dynamic Island (timer / title). If the Island cannot
+              appear, the session can still succeed—check Events.
+            </p>
+            <figure class="shot">
+              <img
+                src="../assets/parking-04-live-activity.png"
+                alt="Parking Live Activity on the Lock Screen after Start Parking"
+                width="390"
+                height="844"
+                loading="lazy"
+              />
+              <figcaption>
+                Parking Live Activity on the Lock Screen after start
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <p>
+              Run <strong>End Parking</strong>. The Event Session should end in
+              Events; a linked Live Activity should dismiss with it.
+            </p>
+          </li>
+        </ol>
+
+        <h2>View in the app</h2>
+        <p>
+          AnyStash is for <strong>reviewing</strong> what Shortcuts already
+          created—you do not need to start or build the session inside the app
+          for this example.
+        </p>
+        <ol class="steps">
+          <li>
+            <p>
+              After Start Parking, open AnyStash → <strong>Events</strong> and
+              confirm the in-progress Parking session under
+              <strong>Active</strong>.
+            </p>
+            <figure class="shot">
+              <img
+                src="../assets/parking-05-events-progress.png"
+                alt="AnyStash Events tab showing an in-progress Parking session"
+                width="390"
+                height="844"
+                loading="lazy"
+              />
+              <figcaption>Events → Active — in-progress Parking session</figcaption>
+            </figure>
+          </li>
+          <li>
+            <p>
+              After End Parking, return to <strong>Events</strong> and confirm
+              the finished session under <strong>Recent</strong>.
+            </p>
+            <figure class="shot">
+              <img
+                src="../assets/parking-06-events-finished.png"
+                alt="AnyStash Events tab showing a finished Parking session"
+                width="390"
+                height="844"
+                loading="lazy"
+              />
+              <figcaption>Events → Recent — finished Parking session</figcaption>
+            </figure>
+          </li>
+        </ol>
+
+        <h2 id="automation">Add to an Automation</h2>
+        <p>
+          Real parking flows usually start or stop <em>without</em> opening
+          Shortcuts by hand. A common pair:
+          <strong>When CarPlay connects</strong> → start parking;
+          <strong>When CarPlay disconnects</strong> → end parking—or the same
+          pairing with car <strong>Bluetooth</strong>.
+        </p>
+        <div class="callout">
+          <p>
+            <strong>CarPlay check first:</strong> Shared Start/End Parking often
+            use a <strong>CarPlay</strong> connect/disconnect trigger. Many cars
+            only offer Bluetooth audio—not CarPlay—so the Automation never
+            fires and parking looks “broken.” Before you rely on it, confirm
+            your car (and phone) actually use <strong>CarPlay</strong> when you
+            plug in or connect wirelessly—not just Bluetooth. If CarPlay is
+            missing or never connects, change both Automations to
+            <strong>Bluetooth connects / disconnects</strong> for your car’s
+            Bluetooth device instead.
+          </p>
+        </div>
+        <p class="cta-note">
+          Steps and screenshots below follow <strong>iOS 27</strong>: find
+          Automations via Search / Add Action (filter chip
+          <strong>Automation</strong>), and edit them in the same action editor
+          as a normal shortcut.
+        </p>
+        <details class="shot-aside">
+          <summary>Using iOS 26 or earlier?</summary>
+          <p>
+            Shortcuts still has a separate <strong>Automation</strong> tab →
+            <strong>New Automation</strong> to pick the trigger. After setup,
+            optionally turn off <strong>Ask Before Running</strong> if iOS
+            allows it for that trigger. CarPlay vs Bluetooth pairing and Event
+            Session settings are the same as below—only the chrome differs.
+          </p>
+        </details>
+        <ol class="steps">
+          <li>
+            <p>
+              If you imported shared Start/End Parking, open those Automations
+              and check the trigger. Building from scratch: in Shortcuts, use
+              Search / Add Action, select the <strong>Automation</strong>
+              filter chip, then pick a trigger (for example CarPlay or
+              Bluetooth).
+            </p>
+            <figure class="shot">
+              <img
+                src="../assets/parking-07-new-automation.png"
+                alt="iOS 27 Shortcuts action search with Automation filter chip showing CarPlay among connectivity triggers"
+                width="390"
+                height="844"
+                loading="lazy"
+              />
+              <figcaption>
+                Search → Automation filter → pick CarPlay or Bluetooth
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <p>
+              Choose the trigger that matches how your phone joins the car:
+            </p>
+            <ul>
+              <li>
+                <strong>CarPlay</strong> — only if CarPlay actually connects
+                (wired or wireless). You’ll make two Automations: connects →
+                start, disconnects → end.
+              </li>
+              <li>
+                <strong>Bluetooth</strong> — if you only get phone audio / HFP
+                / A2DP and never see CarPlay. Pick your <em>car</em> Bluetooth
+                device (not AirPods). Same pairing: connects → start,
+                disconnects → end.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              For each Automation, keep (or add)
+              <strong>Event Session (Live Activity)</strong> with the same
+              settings as Build it yourself:
+            </p>
+            <ul>
+              <li>
+                <strong>Connects</strong> → Phase <strong>Start</strong>,
+                Category <strong>Parking</strong>, Location = Current Location
+                (optional)
+              </li>
+              <li>
+                <strong>Disconnects</strong> → Phase <strong>End</strong>, End
+                By <strong>Category</strong>, Category <strong>Parking</strong>
+              </li>
+            </ul>
+            <details class="shot-aside">
+              <summary>Use Run Shortcut instead?</summary>
+              <p>
+                Prefer calling your library shortcuts? Use
+                <strong>Run Shortcut</strong> → Start/End Parking—still with
+                the correct CarPlay or Bluetooth trigger.
+              </p>
+            </details>
+            <figure class="shot">
+              <img
+                src="../assets/parking-08-carplay-connect.png"
+                alt="iOS 27 Automation editor: When CarPlay is Connected with Event Session Start in Parking"
+                width="390"
+                height="844"
+                loading="lazy"
+              />
+              <figcaption>
+                Example (CarPlay): When CarPlay Is Connected → Event Session
+                Start in Parking
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="../assets/parking-09-carplay-disconnect.png"
+                alt="iOS 27 Automation editor: When CarPlay is Disconnected with Event Session End by Category in Parking"
+                width="390"
+                height="844"
+                loading="lazy"
+              />
+              <figcaption>
+                Example (CarPlay): When CarPlay Is Disconnected → Event Session
+                End by Category in Parking
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <p>
+              Save the Automation. New Automations default to
+              <strong>Notify</strong> off—you usually don’t need to change
+              that. Test by connecting and disconnecting. If nothing runs,
+              re-check CarPlay vs Bluetooth (wrong trigger is the usual cause),
+              then run Start/End Parking manually to confirm the actions
+              themselves work.
+            </p>
+          </li>
+        </ol>
+
         <h2 id="parameter-guide">Parameter guide</h2>
         <p>
-          Parking works with the essentials above. Open a section only when you
-          need that field—defaults are fine for most automations.
+          Parking works with the essentials in Build it yourself. Open a section
+          only when you need that field—defaults are fine for most automations.
         </p>
         <div class="faq">
           <details>
@@ -322,218 +550,6 @@
           <a href="../../support/#legacy-live-activity">Support → legacy Live Activity</a>
           (they still work; prefer Event Session for new shortcuts).
         </p>
-
-        <h2>Try it</h2>
-        <p>
-          Run the shortcuts you built (or imported). Confirm the Event Session
-          under Events; with Show Live Activity On, also confirm the Island—not
-          while configuring parameters above.
-        </p>
-        <ol class="steps">
-          <li>
-            <p>
-              Run <strong>Start Parking</strong>. Confirm an in-progress
-              Parking row under <strong>Events</strong>. With Show Live Activity
-              On, also confirm the <strong>Live Activity</strong> on the Lock
-              Screen or Dynamic Island (timer / title). If the Island cannot
-              appear, the session can still succeed—check Events.
-            </p>
-            <figure class="shot">
-              <img
-                src="../assets/parking-04-live-activity.png"
-                alt="Parking Live Activity on Lock Screen and Dynamic Island after Start Parking"
-                width="390"
-                height="844"
-                loading="lazy"
-              />
-              <figcaption>
-                Parking Live Activity after start (Lock Screen / Dynamic Island)
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <p>
-              Run <strong>End Parking</strong>. The Event Session should end in
-              Events; a linked Live Activity should dismiss with it.
-            </p>
-          </li>
-        </ol>
-
-        <h2>View in the app</h2>
-        <p>
-          AnyStash is for <strong>reviewing</strong> what Shortcuts already
-          created—you do not need to start or build the session inside the app
-          for this example.
-        </p>
-        <ol class="steps">
-          <li>
-            <p>
-              After Start Parking, open AnyStash → <strong>Events</strong> and
-              open the in-progress Parking session.
-            </p>
-            <figure class="shot">
-              <img
-                src="../assets/parking-05-events-progress.png"
-                alt="AnyStash Events tab showing an in-progress Parking session"
-                width="390"
-                height="844"
-                loading="lazy"
-              />
-              <figcaption>Events — view in-progress Parking session</figcaption>
-            </figure>
-          </li>
-          <li>
-            <p>
-              After End Parking, return to <strong>Events</strong> and open the
-              finished session in history.
-            </p>
-            <figure class="shot">
-              <img
-                src="../assets/parking-06-events-finished.png"
-                alt="AnyStash Events tab showing a finished Parking session"
-                width="390"
-                height="844"
-                loading="lazy"
-              />
-              <figcaption>Events — view finished session</figcaption>
-            </figure>
-          </li>
-        </ol>
-        <p>
-          Optional later: Shortcuts can also
-          <strong>Check In</strong> a location onto a session—see
-          <a href="../../support/#concepts">Concepts</a>. This guide does not
-          cover creating sessions from the app UI.
-        </p>
-
-        <h2 id="automation">Add to an Automation</h2>
-        <p>
-          Real parking flows usually start or stop <em>without</em> opening
-          Shortcuts by hand. A common pair:
-          <strong>When CarPlay connects</strong> → Start Parking;
-          <strong>When CarPlay disconnects</strong> → End Parking. If your car
-          doesn’t support CarPlay, use
-          <strong>Bluetooth connects / disconnects</strong> the same way.
-        </p>
-        <div class="callout">
-          <p>
-            <strong>Important:</strong> Sharing or importing a shortcut only
-            adds it to your Shortcuts library. iOS does
-            <strong>not</strong> create an Automation for you. Open
-            <strong>Shortcuts → Automation</strong> and create personal
-            Automations yourself. You can
-            <strong>Run Shortcut</strong> (your imported or newly built
-            Start/End Parking) <em>or</em> add AnyStash’s
-            <strong>Event Session (Live Activity)</strong> action directly
-            (Phase Start / End).
-          </p>
-        </div>
-        <ol class="steps">
-          <li>
-            <p>
-              In Shortcuts, open the <strong>Automation</strong> tab →
-              <strong>New Automation</strong>.
-            </p>
-            <figure class="shot">
-              <img
-                src="../assets/parking-07-new-automation.png"
-                alt="Shortcuts Automation tab creating a new personal Automation"
-                width="390"
-                height="844"
-                loading="lazy"
-              />
-              <figcaption>New personal Automation</figcaption>
-            </figure>
-          </li>
-          <li>
-            <p>
-              Pick a trigger—recommended:
-              <strong>CarPlay</strong> (you’ll use connects for one Automation
-              and disconnects for the other). No CarPlay? Use car
-              <strong>Bluetooth</strong> connects / disconnects instead.
-              Triggers vary by iOS version and permissions.
-            </p>
-          </li>
-          <li>
-            <p>
-              Create <strong>two</strong> Automations and add what should run:
-            </p>
-            <ul>
-              <li>
-                <strong>When CarPlay connects</strong> → start parking
-              </li>
-              <li>
-                <strong>When CarPlay disconnects</strong> → end parking
-              </li>
-            </ul>
-            <p>
-              For each one, either:
-            </p>
-            <ul>
-              <li>
-                Add <strong>Run Shortcut</strong>, then pick the
-                <strong>Start Parking</strong> or
-                <strong>End Parking</strong> shortcut you just imported or
-                built; or
-              </li>
-              <li>
-                Skip the wrapper and add AnyStash’s
-                <strong>Event Session (Live Activity)</strong> directly—Phase
-                <strong>Start</strong> or <strong>End</strong>—with the same
-                settings as in Build it yourself (for example Category =
-                <strong>Parking</strong>, Show Live Activity On for Start).
-              </li>
-            </ul>
-            <p>
-              Without CarPlay, map the same pairing to
-              <strong>Bluetooth connects</strong> → start and
-              <strong>Bluetooth disconnects</strong> → end.
-            </p>
-            <figure class="shot">
-              <img
-                src="../assets/parking-08-carplay-connect.png"
-                alt="Automation When CarPlay connects running Start Parking via Run Shortcut"
-                width="390"
-                height="844"
-                loading="lazy"
-              />
-              <figcaption>
-                When CarPlay connects → Run Shortcut → Start Parking
-              </figcaption>
-            </figure>
-            <figure class="shot">
-              <img
-                src="../assets/parking-09-carplay-disconnect.png"
-                alt="Automation When CarPlay disconnects running End Parking via Run Shortcut"
-                width="390"
-                height="844"
-                loading="lazy"
-              />
-              <figcaption>
-                When CarPlay disconnects → Run Shortcut → End Parking
-              </figcaption>
-            </figure>
-            <details class="shot-aside">
-              <summary>Why “Run Shortcut”?</summary>
-              <p>
-                When you first create an Automation, iOS may offer
-                <strong>use an existing shortcut</strong>. After it’s created,
-                that picker isn’t available the same way—to attach a library
-                shortcut, use <strong>Add Action → Run Shortcut</strong>, then
-                choose yours. AnyStash
-                <strong>Event Session (Live Activity)</strong> can still be
-                added directly. Screenshots follow this edit path.
-              </p>
-            </details>
-          </li>
-          <li>
-            <p>
-              Optionally turn off “Ask Before Running” if iOS allows it for that
-              trigger. If the Automation does not fire (permissions, CarPlay,
-              or Bluetooth), you can still run the same shortcuts manually.
-            </p>
-          </li>
-        </ol>
 
         <h2>Next</h2>
         <ul>
