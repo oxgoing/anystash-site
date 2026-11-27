@@ -292,8 +292,8 @@
         <p>
           Real parking flows usually start or stop <em>without</em> opening
           Shortcuts by hand. A common pair:
-          <strong>When CarPlay connects</strong> → start parking;
-          <strong>When CarPlay disconnects</strong> → end parking—or the same
+          <strong>When CarPlay disconnects</strong> → start parking;
+          <strong>When CarPlay connects</strong> → end parking—or the same
           pairing with car <strong>Bluetooth</strong>.
         </p>
         <div class="callout">
@@ -354,14 +354,14 @@
             <ul>
               <li>
                 <strong>CarPlay</strong> — only if CarPlay actually connects
-                (wired or wireless). You’ll make two Automations: connects →
-                start, disconnects → end.
+                (wired or wireless). You’ll make two Automations: disconnects →
+                start, connects → end.
               </li>
               <li>
                 <strong>Bluetooth</strong> — if you only get phone audio / HFP
                 / A2DP and never see CarPlay. Pick your <em>car</em> Bluetooth
-                device (not AirPods). Same pairing: connects → start,
-                disconnects → end.
+                device (not AirPods). Same pairing: disconnects → start,
+                connects → end.
               </li>
             </ul>
           </li>
@@ -373,13 +373,13 @@
             </p>
             <ul>
               <li>
-                <strong>Connects</strong> → Phase <strong>Start</strong>,
+                <strong>Disconnects</strong> → Phase <strong>Start</strong>,
                 Category <strong>Parking</strong>, Location = Current Location
                 (optional)
               </li>
               <li>
-                <strong>Disconnects</strong> → Phase <strong>End</strong>, End
-                By <strong>Category</strong>, Category <strong>Parking</strong>
+                <strong>Connects</strong> → Phase <strong>End</strong>, End By
+                <strong>Category</strong>, Category <strong>Parking</strong>
               </li>
             </ul>
             <details class="shot-aside">
@@ -393,27 +393,27 @@
             <figure class="shot">
               <img
                 src="../assets/parking-08-carplay-connect.png"
-                alt="iOS 27 Automation editor: When CarPlay is Connected with Event Session Start in Parking"
-                width="390"
-                height="844"
-                loading="lazy"
-              />
-              <figcaption>
-                Example (CarPlay): When CarPlay Is Connected → Event Session
-                Start in Parking
-              </figcaption>
-            </figure>
-            <figure class="shot">
-              <img
-                src="../assets/parking-09-carplay-disconnect.png"
-                alt="iOS 27 Automation editor: When CarPlay is Disconnected with Event Session End by Category in Parking"
+                alt="iOS 27 Automation editor: When CarPlay is Disconnected with Event Session Start in Parking"
                 width="390"
                 height="844"
                 loading="lazy"
               />
               <figcaption>
                 Example (CarPlay): When CarPlay Is Disconnected → Event Session
-                End by Category in Parking
+                Start in Parking
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="../assets/parking-09-carplay-disconnect.png"
+                alt="iOS 27 Automation editor: When CarPlay is Connected with Event Session End by Category in Parking"
+                width="390"
+                height="844"
+                loading="lazy"
+              />
+              <figcaption>
+                Example (CarPlay): When CarPlay Is Connected → Event Session End
+                by Category in Parking
               </figcaption>
             </figure>
           </li>
